@@ -54,7 +54,7 @@ with st.sidebar:
         main_delta = delta_hist['delta mz'][0]
         st.write('DELTAS', delta_hist)
 
-        csv = convert_df(df_filter)
+csv = convert_df(df_filter)
 
 st.download_button(
     label="Download data as CSV",
@@ -112,6 +112,13 @@ if st.button('Process data'):
     fig = px.scatter(df_filter, x='mz1', y='end group', size='intensity', width=5000, height=400)
     st.plotly_chart(fig, use_container_width=True)
 
+    csv = convert_df(df_filter)
+
+    st.download_button(
+        label="Download data as CSV",
+        data=csv,
+        file_name='data_processed.csv',
+        mime='text/csv', )
 
 
 
